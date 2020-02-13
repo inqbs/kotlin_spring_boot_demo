@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+#debug: true
+
+spring:
+  devtools:
+    restart:
+      enabled: true
+  # disable thymeleaf cache
+  thymeleaf:
+    cache: false
+  # spring.datasource to db
+  datasource:
+    url: jdbc:mysql://localhost/test_boarddb?serverTimezone=UTC
+    username: admin
+    password: dkdlwkr
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+mybatis:
+  config-location: classpath:mapper/mybatis-config.xml
+  type-aliases-package: com.example.demo.model
+  mapper-locations: classpath:mapper/*Mapper.xml

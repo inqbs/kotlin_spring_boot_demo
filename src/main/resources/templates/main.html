@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{margin:0;padding:0}
+        header,footer{background:#252525;color:#fff;display:flex;align-content:flex-end;padding:1rem}
+        main{margin:1rem auto;width:800px;}
+        main>div, main>section{margin:.5rem auto;padding:1rem;box-shadow:0 1px 1px 2px rgba(0,0,0,.15);border-radius:8px;}
+        .section__header{display:flex;justify-content:space-between;}
+        address{font-style:normal}
+    </style>
+</head>
+<body>
+    <header>
+        <span>ID: [[${vo.id}]]</span>
+    </header>
+    <main>
+        <section class="info-section">
+            <h3>Hello [[${vo.name}]]</h3>
+            <p>생일: <time th:datetime="${vo.birth}"></time></p>
+        </section>
+        <th:block th:each="board: ${list}">
+            <section>
+                <div class="section__header">
+                    <h4 th:text="${board.title}"></h4>
+                    <time th:datetime="${board.regdate}"></time>
+                </div>
+                <p th:text="${board.description}"></p>
+            </section>
+        </th:block>
+    </main>
+    <footer>
+        <address>copyright [[${vo.name}]] all right reversed.</address>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script>
+        document.querySelectorAll('time').forEach(time=>{
+            time.textContent = moment(time.dateTime).format('YYYY-MM-DD HH:mm:ss');
+        });
+    </script>
+</body>
+</html>
