@@ -10,6 +10,7 @@ spring:
   # disable thymeleaf cache
   thymeleaf:
     cache: false
+    prefix: classpath:templates/
   # spring.datasource to db
   datasource:
     url: jdbc:mysql://localhost/test_boarddb?serverTimezone=UTC

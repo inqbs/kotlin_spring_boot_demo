@@ -68,3 +68,8 @@ idea {
 		outputDir = file("$buildDir/classes/kotlin/main")
 	}
 }
+
+//  auto reload resources on kotlin spring boot
+tasks.getByName<org.springframework.boot.gradle.tasks.run.BootRun>("bootRun") {
+	sourceResources(sourceSets["main"])
+}

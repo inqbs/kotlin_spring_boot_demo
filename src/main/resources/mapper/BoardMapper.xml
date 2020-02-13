@@ -11,5 +11,6 @@
         SELECT title, description, regdate
         FROM board_table
         ORDER BY regdate DESC
+        LIMIT 0, 50
     </select>
 </mapper>

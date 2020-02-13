@@ -18,7 +18,6 @@ class HomeController(@Autowired val listMgr: ListMgr){
 
 	@GetMapping("/main")
 	fun getMainView (@RequestParam(required=false, defaultValue = "User") name:String, mv: ModelAndView):ModelAndView{
-
 		val vo = TestDto(
 			id = "test",
 			name = name,
