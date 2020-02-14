@@ -22,33 +22,16 @@
 </head>
 <body>
     <header>
-        <span>ID: [[${vo.id}]]</span>
+        <span>ID: </span>
     </header>
     <main>
         <section class="info-section">
-            <h3>Hello [[${vo.name}]]</h3>
-            <p>birth: <time th:datetime="${vo.birth}"></time></p>
-        </section>
-        <section class="tl-section">
-            <th:block th:each="board: ${list}">
-                <article class="article">
-                    <div class="article__header">
-                        <h4 th:text="${board.title}"></h4>
-                        <time th:datetime="${board.regdate}"></time>
-                    </div>
-                    <p class="article__body" th:text="${board.description}"></p>
-                </article>
-            </th:block>
+            <h3>Hello</h3>
+            <p>this is sub page</p>
         </section>
     </main>
     <footer>
-        <address>copyright © [[${vo.name}]] all right reversed.</address>
+        <address>copyright © all right reversed.</address>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script>
-        document.querySelectorAll('time').forEach(time=>{
-            time.textContent = moment(time.dateTime).format('YYYY-MM-DD HH:mm:ss');
-        });
-    </script>
 </body>
 </html>

@@ -17,7 +17,7 @@ class HomeController(@Autowired val listMgr: ListMgr){
 	val logger:Logger = LoggerFactory.getLogger(HomeController::class.java)
 
 	@GetMapping("/main")
-	fun getMainView (@RequestParam(required=false, defaultValue = "User") name:String, mv: ModelAndView):ModelAndView{
+	fun getMainView (@RequestParam(required=false, defaultValue = "User") name:String):ModelAndView{
 		val vo = TestDto(
 			id = "test",
 			name = name,
@@ -26,10 +26,18 @@ class HomeController(@Autowired val listMgr: ListMgr){
 
 		val list = listMgr.getList()
 
-		return mv.apply{
+		return ModelAndView().apply{
 			viewName = "main"
 			addObject("list", list)
 			addObject("vo", vo)
+		}
+	}
+
+	@GetMapping("/sub")
+	fun getSubView():ModelAndView{
+
+		return ModelAndView().apply{
+			viewName="sub"
 		}
 	}
 

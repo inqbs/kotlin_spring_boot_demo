@@ -1,15 +1,29 @@
 server:
   port: 8080
 
+# FIXME: only development
 #debug: true
+logging:
+  level:
+    org.springframework.web: DEBUG
+    org.hibernate: ERROR
 
 spring:
+  # resources & source hot reload
   devtools:
-    restart:
+    livereload:
       enabled: true
+    restart:
+      enabled: false
+  freemarker: # FIXME: only development
+    cache: false
+  # coloring console
+  output:
+    ansi:
+      enabled: always
   # disable thymeleaf cache
   thymeleaf:
-    cache: false
+    cache: false  # FIXME: only development
     prefix: classpath:templates/
   # spring.datasource to db
   datasource:

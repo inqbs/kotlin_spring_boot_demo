@@ -13,7 +13,6 @@ class DemoApplicationTests {
 
 	@Test
 	fun contextLoads(@Autowired mgr: ListMgr) {
-
 		val result = mgr.getList().size
 		val requiredValue = 112
 		Assertions.assertEquals(requiredValue, result, "DemoApplicationTests의 값 미동일");
