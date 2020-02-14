@@ -3,7 +3,9 @@ package com.example.demo.model
 import java.time.LocalDateTime
 
 data class BoardDto(
-		val title: String,
-		val description: String,
-		val regdate: LocalDateTime
+		var num: Int = 0,
+		var title: String = "",
+		var description: String = "",
+		var email: String = "",
+		var regdate: LocalDateTime = LocalDateTime.MIN
 )

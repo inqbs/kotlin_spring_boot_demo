@@ -6,4 +6,5 @@ import org.apache.ibatis.annotations.Mapper
 @Mapper
 interface BoardDao {
 	fun selectGetList():List<BoardDto>?
+	fun selectGetPost(num:Int):BoardDto?
 }

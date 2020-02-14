@@ -3,14 +3,21 @@
 
 <mapper namespace="com.example.demo.dao.BoardDao" >
 
-    <resultMap id="boardMap" type="BoardDto" autoMapping="true">
-        <id column="num" javaType="_int" />
-    </resultMap>
+	<resultMap id="boardMap" type="BoardDto" autoMapping="true">
+		<id column="num" property="num" javaType="int" />
+	</resultMap>
 
-    <select id="selectGetList" resultMap="boardMap">
-        SELECT title, description, regdate
-        FROM board_table
-        ORDER BY regdate DESC
-        LIMIT 0, 50
+	<select id="selectGetList" resultMap="boardMap">
+		SELECT num, title, email, description, regdate
+		FROM board_table
+		ORDER BY regdate DESC
+		LIMIT 0, 50
     </select>
+
+	<select id="selectGetPost" resultMap="boardMap" parameterType="int">
+		SELECT num, title, email, description, regdate
+		FROM board_table
+		WHERE num = #{num}
+	</select>
+
 </mapper>

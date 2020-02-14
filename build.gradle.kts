@@ -30,24 +30,29 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web-services")
 
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	implementation("org.jetbrains.kotlin:kotlin-reflect")
 
 	implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1")
 	implementation("org.springframework.session:spring-session-core")
 	implementation("org.thymeleaf.extras:thymeleaf-extras-java8time")
 
-	developmentOnly("junit:junit")
-	testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.2")
-	testImplementation("org.junit.jupiter:junit-jupiter-engine:5.3.2")
+	runtimeOnly("mysql:mysql-connector-java")
+
+	testImplementation(kotlin("test"))
+	/*developmentOnly("junit:junit:5.3.2")*/
+	/*testImplementation("org.junit.jupiter:junit-jupiter-api:5.3.2")
+	testImplementation("org.junit.jupiter:junit-jupiter-engine:5.3.2")*/
+	testImplementation("org.jetbrains.kotlin:kotlin-test:1.3.61")
+	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5:1.3.61")
 
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 
-	runtimeOnly("mysql:mysql-connector-java")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}
+
 }
 
 tasks.withType<Test> {

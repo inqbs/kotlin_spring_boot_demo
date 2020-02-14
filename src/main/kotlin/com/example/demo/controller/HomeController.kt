@@ -4,7 +4,6 @@ import com.example.demo.mgr.ListMgr
 import com.example.demo.model.TestDto
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
@@ -12,9 +11,11 @@ import org.springframework.web.servlet.ModelAndView
 import java.time.LocalDate
 
 @RestController
-class HomeController(@Autowired val listMgr: ListMgr){
+class HomeController(private val listMgr: ListMgr){
 
-	val logger:Logger = LoggerFactory.getLogger(HomeController::class.java)
+	companion object{
+		private val logger:Logger = LoggerFactory.getLogger(HomeController::class.java)
+	}
 
 	@GetMapping("/main")
 	fun getMainView (@RequestParam(required=false, defaultValue = "User") name:String):ModelAndView{
@@ -34,11 +35,15 @@ class HomeController(@Autowired val listMgr: ListMgr){
 	}
 
 	@GetMapping("/sub")
-	fun getSubView():ModelAndView{
+	fun getSubView(@RequestParam(required=false, defaultValue = 0.toString()) num:Int):ModelAndView{
+
+		val post = listMgr.getPostByName(num);
 
 		return ModelAndView().apply{
 			viewName="sub"
+			addObject("post",post)
 		}
 	}
+
 
 }
