@@ -6,11 +6,11 @@ import org.springframework.stereotype.Service
 
 interface ListMgr{
 	fun getList():List<BoardDto>
-	fun getPostByName(num:Int):BoardDto
+	fun getPostByNum(num:Int):BoardDto
 }
 
 @Service
 class ListMgrImpl(private val dao:BoardDao): ListMgr {
 	override fun getList(): List<BoardDto> = dao.selectGetList()?: arrayListOf()
-	override fun getPostByName(num:Int): BoardDto = dao.selectGetPost(num)?: BoardDto()
+	override fun getPostByNum(num:Int): BoardDto = dao.selectGetPost(num)?: BoardDto()
 }

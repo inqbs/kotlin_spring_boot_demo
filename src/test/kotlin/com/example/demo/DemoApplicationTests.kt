@@ -1,8 +1,8 @@
 package com.example.demo
 
 import com.example.demo.dao.BoardDao
-import com.example.demo.mgr.ListMgr
 import com.example.demo.model.BoardDto
+import io.mockk.mockk
 import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertAll
@@ -21,14 +21,13 @@ import kotlin.test.assertEquals
 @WebAppConfiguration
 class DemoApplicationTests(@Autowired private val mockMvc:MockMvc){
 
-	@Test
-	@Disabled
-	fun contextLoads(@Autowired mgr: ListMgr) {
-		val result = mgr.getPostByName(112)
-		val requiredValue = BoardDto()
-		assertEquals(requiredValue, result, "not no.112 post")
+	private val testPost: BoardDto = mockk()
 
-	}
+	/*@Test
+	fun contextLoads(@Autowired mgr: ListMgr) {
+		val result = mgr.getPostByNum(112)
+		assertEquals(requiredValue, result, "not no.112 post")
+	}*/
 
 	@Test
 	@Disabled
@@ -37,7 +36,7 @@ class DemoApplicationTests(@Autowired private val mockMvc:MockMvc){
 
 		this.mockMvc.perform(MockMvcRequestBuilders.get(requestURL))
 				.andDo{it->print(it.response.status)}
-				.andExpect(status().isOk);
+				.andExpect(status().isOk)
 	}
 
 
@@ -50,10 +49,11 @@ class DemoApplicationTests(@Autowired private val mockMvc:MockMvc){
 	}
 
 	@Test
+	@Disabled
 	fun isCopiedObjisEquals(){
 		val a = BoardDto().apply {
 			num = 12
-			title = "testtest"
+			title = "test test"
 		}
 
 		val b = a.copy()

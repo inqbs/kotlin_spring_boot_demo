@@ -45,6 +45,8 @@ dependencies {
 	testImplementation("org.junit.jupiter:junit-jupiter-engine:5.3.2")*/
 	testImplementation("org.jetbrains.kotlin:kotlin-test:1.3.61")
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5:1.3.61")
+	testImplementation("com.ninja-squad:springmockk:2.0.0")
+//	testImplementation("io.mockk:mockk:1.9.3")
 
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 

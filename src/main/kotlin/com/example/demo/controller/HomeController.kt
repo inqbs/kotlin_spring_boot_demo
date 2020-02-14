@@ -37,7 +37,7 @@ class HomeController(private val listMgr: ListMgr){
 	@GetMapping("/sub")
 	fun getSubView(@RequestParam(required=false, defaultValue = 0.toString()) num:Int):ModelAndView{
 
-		val post = listMgr.getPostByName(num);
+		val post = listMgr.getPostByNum(num)
 
 		return ModelAndView().apply{
 			viewName="sub"

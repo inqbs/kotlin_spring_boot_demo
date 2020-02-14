@@ -37,3 +37,5 @@ mybatis:
   config-location: classpath:mapper/mybatis-config.xml
   type-aliases-package: com.example.demo.model
   mapper-locations: classpath:mapper/*Mapper.xml
+
+org.gradle.warning.mode: all
